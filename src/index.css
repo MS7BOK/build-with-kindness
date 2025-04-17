@@ -1,10 +1,13 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap');
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +93,46 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 px-6 sm:px-8 md:px-16 lg:px-24;
+  }
+  
+  .nav-link {
+    @apply relative text-portfolio-slate hover:text-portfolio-teal transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-portfolio-teal transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .highlight {
+    @apply text-portfolio-teal;
+  }
+  
+  .heading {
+    @apply font-semibold text-3xl sm:text-4xl md:text-5xl text-foreground mb-6;
+  }
+  
+  .subheading {
+    @apply font-medium text-xl sm:text-2xl text-foreground mb-4;
+  }
+  
+  .section-title {
+    @apply flex items-center font-semibold text-2xl mb-8 text-foreground;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply ml-4 flex-grow h-px bg-border;
   }
 }
